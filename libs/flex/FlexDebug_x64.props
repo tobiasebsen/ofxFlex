@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../../addons/ofxFlex/libs/NvFlex/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>../../../addons/ofxFlex/libs/NvFlex/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>NvFlexDeviceRelease_x64.lib;NvFlexReleaseCUDA_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <PostBuildEvent>
+      <Command>xcopy /y  "$(ProjectDir)\..\..\..\addons\ofxFlex\libs\NvFlex\bin\win32\cudart32_80.dll" "$(ProjectDir)$(OutDir)"
+xcopy /y  "$(ProjectDir)\..\..\..\addons\ofxFlex\libs\NvFlex\bin\win32\NvFlexDebugCUDA_x86.dll" "$(ProjectDir)$(OutDir)"
+xcopy /y  "$(ProjectDir)\..\..\..\addons\ofxFlex\libs\NvFlex\bin\win32\NvFlexDeviceDebug_x86.dll" "$(ProjectDir)$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
